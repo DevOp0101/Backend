@@ -27,9 +27,7 @@ package-lock.json
 .env.test.env
 .env.production.env
 
-# xcf images
-xcf/
-
+# log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
