@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
-  origin: 'https://devop0101.github.io/Frontend/',
+  origin: 'https://devop0101.github.io',
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type,Authorization',
 }));
