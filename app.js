@@ -15,8 +15,23 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//app.use(cors({
+//  origin: 'https://devop0101.github.io',
+//  methods: 'GET,POST',
+//  allowedHeaders: 'Content-Type,Authorization',
+//}));
+
+const allowedOrigins = ['https://devop0101.github.io', 'http://localhost:3000/Frontend'];
+
 app.use(cors({
-  origin: 'https://devop0101.github.io',
+  origin: function (origin, callback) {
+    // Check if the origin is in the list of allowed origins
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,POST',
   allowedHeaders: 'Content-Type,Authorization',
 }));
