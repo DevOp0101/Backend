@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 //  allowedHeaders: 'Content-Type,Authorization',
 //}));
 
-const allowedOrigins = ['https://devop0101.github.io', 'http://localhost:3000/Frontend'];
+const allowedOrigins = ['https://devop0101.github.io', 'http://localhost:3000'];
 
 app.use(cors({
   origin: function (origin, callback) {
