@@ -17,7 +17,17 @@ const playlistSchema = new mongoose.Schema({
     videoId: String,
     title: String,
     description: String,
-    thumbnail: String,
+    thumbnail: {
+        low: {
+            url: String,
+        },
+        medium: {
+            url: String,
+        },
+        high: {
+            url: String,
+        },
+    },
     genre: String,
     director: String,
     writer: String,
@@ -86,10 +96,10 @@ router.get('/updatePlaylistData', async (req, res) => {
                     url: item.snippet.thumbnails.default.url,
                 },
                 medium: {
-                    url: item.snippet.thumbnails.default.url,
+                    url: item.snippet.thumbnails.medium.url,
                 },
                 high: {
-                    url: item.snippet.thumbnails.default.url,
+                    url: item.snippet.thumbnails.high.url,
                 },
             },
             genre: 'Documentary, Drama, Comedy, Action, Adventure, Mystery, Thriller, Romance, Fantasy, Sci-Fi',
