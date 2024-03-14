@@ -81,7 +81,17 @@ router.get('/updatePlaylistData', async (req, res) => {
             videoId: item.id.videoId,
             title: item.snippet.title,
             description: item.snippet.description,
-            thumbnail: item.snippet.thumbnails.default.url,
+            thumbnail: {
+                low: {
+                    url: item.snippet.thumbnails.default.url,
+                },
+                medium: {
+                    url: item.snippet.thumbnails.medium.url,
+                },
+                high: {
+                    url: item.snippet.thumbnails.high.url,
+                },
+            },
             genre: 'Documentary, Drama, Comedy, Action, Adventure, Mystery, Thriller, Romance, Fantasy, Sci-Fi',
             director: 'Leeroy Ashcraft',
             writer: 'Jake Hill',
@@ -94,7 +104,7 @@ router.get('/updatePlaylistData', async (req, res) => {
         
         await Playlist.insertMany(playlistItems);
 
-        res.json({ success: true, filteredStreams: fetchedStreams });
+        res.json({ success: true, filteredStreams: filteredStreams });
 
     } catch (error) {
         res.status(500).send('Internal Server Error');
