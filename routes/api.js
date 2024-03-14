@@ -81,7 +81,17 @@ router.get('/updatePlaylistData', async (req, res) => {
             videoId: item.id.videoId,
             title: item.snippet.title,
             description: item.snippet.description,
-            thumbnail: item.snippet.thumbnails.high.url,
+            thumbnail: {
+                low: {
+                    url: item.snippet.thumbnails.default.url,
+                },
+                medium: {
+                    url: item.snippet.thumbnails.default.url,
+                },
+                high: {
+                    url: item.snippet.thumbnails.default.url,
+                },
+            },
             genre: 'Documentary, Drama, Comedy, Action, Adventure, Mystery, Thriller, Romance, Fantasy, Sci-Fi',
             director: 'Leeroy Ashcraft',
             writer: 'Jake Hill',
