@@ -44,7 +44,7 @@ router.get('/playlist/:genre', async (req, res) => {
     }
 });
 
-/*
+
 router.get('/updatePlaylistData', async (req, res) => {
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
     const channelId = 'UCX1nchEcBshItKBeJvH-YMw';
@@ -52,7 +52,7 @@ router.get('/updatePlaylistData', async (req, res) => {
     //WUTANG: UCUpbgPbDccjoB9PxI-nI7oA
     //MOVIECENTRAL: UCGBzBkV-MinlBvHBzZawfLQ
     //YOUTUBEMOVIES: UCuVPpxrm2VAgpH3Ktln4HXg
-    const maxFetchCount = 10;
+    const maxFetchCount = 1;
     let fetchedStreams = [];
     let token = null;
     try {
@@ -100,7 +100,7 @@ router.get('/updatePlaylistData', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-*/
+
 
 const getFormattedDate = () => {
     var currentTime = new Date();
