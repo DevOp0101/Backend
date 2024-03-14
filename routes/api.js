@@ -83,13 +83,13 @@ router.get('/updatePlaylistData', async (req, res) => {
             description: item.snippet.description,
             thumbnail: {
                 low: {
-                    url: item.snippet.thumbnails.default.url,
+                    url: item.snippet.thumbnails.default ? item.snippet.thumbnails.default.url : null,
                 },
                 medium: {
-                    url: item.snippet.thumbnails.medium.url,
+                    url: item.snippet.thumbnails.medium ? item.snippet.thumbnails.medium.url : null,
                 },
                 high: {
-                    url: item.snippet.thumbnails.high.url,
+                    url: item.snippet.thumbnails.high ? item.snippet.thumbnails.high.url : null,
                 },
             },
             genre: 'Documentary, Drama, Comedy, Action, Adventure, Mystery, Thriller, Romance, Fantasy, Sci-Fi',
