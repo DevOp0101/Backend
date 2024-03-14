@@ -62,7 +62,7 @@ router.get('/updatePlaylistData', async (req, res) => {
     //WUTANG: UCUpbgPbDccjoB9PxI-nI7oA
     //MOVIECENTRAL: UCGBzBkV-MinlBvHBzZawfLQ
     //YOUTUBEMOVIES: UCuVPpxrm2VAgpH3Ktln4HXg
-    const maxFetchCount = 1;
+    const maxFetchCount = 10;
     let fetchedStreams = [];
     let token = null;
     try {
@@ -114,7 +114,7 @@ router.get('/updatePlaylistData', async (req, res) => {
         
         await Playlist.insertMany(playlistItems);
 
-        res.json({ success: true, filteredStreams: fetchedStreams });
+        res.json({ success: true, filteredStreams: filteredStreams });
 
     } catch (error) {
         res.status(500).send('Internal Server Error');
