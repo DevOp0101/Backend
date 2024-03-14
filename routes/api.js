@@ -94,7 +94,7 @@ router.get('/updatePlaylistData', async (req, res) => {
         
         await Playlist.insertMany(playlistItems);
 
-        res.json({ success: true, filteredStreams: filteredStreams });
+        res.json({ success: true, filteredStreams: fetchedStreams });
 
     } catch (error) {
         res.status(500).send('Internal Server Error');
