@@ -52,7 +52,7 @@ router.get('/updatePlaylistData', async (req, res) => {
     //WUTANG: UCUpbgPbDccjoB9PxI-nI7oA
     //MOVIECENTRAL: UCGBzBkV-MinlBvHBzZawfLQ
     //YOUTUBEMOVIES: UCuVPpxrm2VAgpH3Ktln4HXg
-    const maxFetchCount = 2;
+    const maxFetchCount = 1;
     let fetchedStreams = [];
     let token = null;
     try {
@@ -81,17 +81,7 @@ router.get('/updatePlaylistData', async (req, res) => {
             videoId: item.id.videoId,
             title: item.snippet.title,
             description: item.snippet.description,
-            thumbnail: {
-                low: {
-                    url: item.snippet.thumbnails.default ? item.snippet.thumbnails.default.url : null,
-                },
-                medium: {
-                    url: item.snippet.thumbnails.medium ? item.snippet.thumbnails.medium.url : null,
-                },
-                high: {
-                    url: item.snippet.thumbnails.high ? item.snippet.thumbnails.high.url : null,
-                },
-            },
+            thumbnail: item.snippet.thumbnails.medium.url,
             genre: 'Documentary, Drama, Comedy, Action, Adventure, Mystery, Thriller, Romance, Fantasy, Sci-Fi',
             director: 'Leeroy Ashcraft',
             writer: 'Jake Hill',
@@ -104,7 +94,7 @@ router.get('/updatePlaylistData', async (req, res) => {
         
         await Playlist.insertMany(playlistItems);
 
-        res.json({ success: true, filteredStreams: filteredStreams });
+        res.json({ success: true, filteredStreams: fetchedStreams });
 
     } catch (error) {
         res.status(500).send('Internal Server Error');
