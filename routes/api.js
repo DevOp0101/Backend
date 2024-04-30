@@ -36,7 +36,8 @@ router.get('/chat/message/:room', Chat.getChatMessage);
 router.get('/chat/message/', Chat.sendChatMessage);
 
 // Route text to speech into controllers
-router.post('/tts/stream/', TextToSpeech.convertToAudio);
+// OPEN AI ENABLE
+//router.post('/tts/stream/', TextToSpeech.convertToAudio);
 
 
 module.exports = router;

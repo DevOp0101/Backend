@@ -1,3 +1,4 @@
+/*
 const openai = require('openai');
 require('dotenv').config()
 
@@ -11,7 +12,7 @@ const convertToAudio = async (req, res) => {
         model: "tts-1",
         voice: voice,
         input: text,
-        format: "roxy",
+        format: "opus",
     });
 
     console.log("generating streaming audio for: ", text);
@@ -39,3 +40,4 @@ const convertToAudio = async (req, res) => {
 };
 
 module.exports = { convertToAudio }
+*/
