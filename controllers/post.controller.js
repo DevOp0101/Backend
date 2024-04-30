@@ -1,6 +1,9 @@
 const Video = require("../models/video.model");
 
 const updateAllVideoData = async (req, res) => {
+    
+    res.json({ success: true, filteredStreams: null });
+    
     /*
     const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
     const channelId = 'UCX1nchEcBshItKBeJvH-YMw';
