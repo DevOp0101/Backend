@@ -11,7 +11,7 @@ const convertToAudio = async (req, res) => {
         model: "tts-1",
         voice: voice,
         input: text,
-        format: "opus",
+        format: "roxy",
     });
 
     console.log("generating streaming audio for: ", text);
